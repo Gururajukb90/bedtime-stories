@@ -65,8 +65,7 @@ def build_story(day: date) -> str:
     """Return the markdown story for a given date (rotates by day number)."""
     n = day.toordinal()
     hero, friend, place = SETTINGS[n % len(SETTINGS)]
-    # Different modulus so theme/setting pairings change over time.
-    theme, middle, moral = THEMES[(n // 1) % len(THEMES)]
+    theme, middle, moral = THEMES[n % len(THEMES)]
     middle = middle.format(hero=hero, friend=friend)
 
     paragraphs = [
